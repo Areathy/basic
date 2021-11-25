@@ -1,8 +1,13 @@
 package com.henrietha.basic.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Quote {
 
+    @JsonProperty("author")
     private String author;
+
+    @JsonProperty("text")
     private String text;
 
     public Quote() {}
