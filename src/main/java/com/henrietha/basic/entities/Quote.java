@@ -2,19 +2,37 @@ package com.henrietha.basic.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="quotes")
 public class Quote {
 
-    @JsonProperty("author")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "author")
     private String author;
 
-    @JsonProperty("text")
+   @Column(name = "quote")
     private String text;
 
     public Quote() {}
 
-    public Quote(String author, String text) {
+    public Quote(int id, String author, String text) {
+        this.id = id;
         this.author = author;
         this.text = text;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAuthor() {
